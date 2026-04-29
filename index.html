@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniele Casoria</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <style>
         :root {
             --primary-color: #00d4aa;
@@ -19,9 +16,7 @@
             --text-muted: #666;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Arial', sans-serif;
@@ -48,9 +43,7 @@
             transition: color 0.3s ease;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-color) !important;
-        }
+        .navbar-nav .nav-link:hover { color: var(--primary-color) !important; }
 
         .navbar-nav .nav-link::after {
             content: '';
@@ -64,8 +57,25 @@
             transform: translateX(-50%);
         }
 
-        .navbar-nav .nav-link:hover::after {
-            width: 100%;
+        .navbar-nav .nav-link:hover::after { width: 100%; }
+
+        /* Language toggle */
+        .lang-toggle {
+            background: transparent;
+            border: 1.5px solid var(--primary-color);
+            border-radius: 20px;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .lang-toggle:hover {
+            background: var(--primary-color);
+            color: white;
         }
 
         /* Hero Section */
@@ -85,12 +95,10 @@
             transition: transform 0.3s ease;
         }
 
-        .hero-profile-img:hover {
-            transform: scale(1.05);
-        }
+        .hero-profile-img:hover { transform: scale(1.05); }
 
         .hero-bio {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             opacity: 0.9;
         }
@@ -128,34 +136,21 @@
             overflow: hidden;
         }
 
-     .section-header {
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-2) 50%, var(--dark-bg-3) 100%);
-    color: white;
-    padding: 1.2rem 2rem;
-    text-align: center;
-}
-
-.section-header h3,
-.section-header h2 {
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-        .profile-img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+        .section-header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-2) 50%, var(--dark-bg-3) 100%);
+            color: white;
+            padding: 1.2rem 2rem;
+            text-align: center;
         }
 
-        .profile-img:hover {
-            transform: scale(1.05);
+        .section-header h3,
+        .section-header h2 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 0;
         }
 
         /* Timeline */
@@ -181,13 +176,11 @@
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: 50%;
             margin-right: calc(50% + 1rem);
             text-align: right;
         }
 
         .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 50%;
             margin-left: calc(50% + 1rem);
         }
 
@@ -273,14 +266,8 @@
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
@@ -294,11 +281,14 @@
             transform: translateY(0);
         }
 
-        /* Mobile Responsive Timeline */
+        /* Language */
+        .lang-it { display: none !important; }
+        body.lang-it-active .lang-it { display: inline !important; }
+        body.lang-it-active .lang-en { display: none !important; }
+
+        /* Mobile */
         @media (max-width: 768px) {
-            .timeline::before {
-                left: 20px;
-            }
+            .timeline::before { left: 20px; }
 
             .timeline-item:nth-child(odd) .timeline-content,
             .timeline-item:nth-child(even) .timeline-content {
@@ -307,23 +297,28 @@
                 text-align: left;
             }
 
-            .timeline-marker {
-                left: 10px;
-                transform: none;
-            }
+            .timeline-marker { left: 10px; transform: none; }
 
-            .hero-title {
-                font-size: 2.5rem;
-            }
+            .hero-title { font-size: 2rem; }
 
             .hero-profile-img {
-                width: 250px;
-                height: 250px;
+                width: 180px;
+                height: 180px;
             }
+
+            .hero-section .container {
+                padding-top: 6rem;
+                padding-bottom: 3rem;
+            }
+
+            .hero-bio { font-size: 0.95rem; }
+
+            .lang-toggle { margin-left: 0; margin-top: 0.5rem; }
         }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white bg-opacity-95 fixed-top">
         <div class="container">
@@ -332,14 +327,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Chi Sono</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#whatido">What I Do</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Esperienza</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certifications">Certificazioni</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><span class="lang-en">About</span><span class="lang-it">Chi Sono</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#whatido"><span class="lang-en">What I Do</span><span class="lang-it">Cosa Faccio</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience"><span class="lang-en">Experience</span><span class="lang-it">Esperienza</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications"><span class="lang-en">Skills</span><span class="lang-it">Certificazioni</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><span class="lang-en">Contact</span><span class="lang-it">Contatti</span></a></li>
+                    <li class="nav-item">
+                        <button class="lang-toggle" id="langToggle" onclick="toggleLang()">IT</button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -351,14 +348,17 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-2 order-lg-1">
                     <h1 class="hero-title mb-3">Daniele Casoria</h1>
-                    <h2 class="hero-subtitle h4 mb-4">IT Engineer & Consultant</h2>
+                    <h2 class="hero-subtitle h4 mb-4">IT Engineer &amp; Consultant</h2>
                     <div class="hero-bio mb-4">
-                        [en] Hello! I'm an IT Engineer based in Reggio Calabria, Southern Italy. I'm a dad, a nerd, and a CrossFit enthusiast.
-                        <br><br>
-                        I thrive on solving problems with innovative, out-of-the-box solutions and turning complex challenges into clear, actionable results. 
-                        With a strong passion for technology, cinema, photography, and finance, I bring a multidisciplinary approach to everything I do
+                        <span class="lang-en">Hello! I'm an IT Engineer based in Reggio Calabria, Southern Italy. I'm a dad, a nerd, and a CrossFit enthusiast.<br><br>
+                        I thrive on solving problems with innovative, out-of-the-box solutions and turning complex challenges into clear, actionable results. With a strong passion for technology, cinema, photography, and finance, I bring a multidisciplinary approach to everything I do.</span>
+                        <span class="lang-it">Ciao! Sono un ingegnere informatico con base a Reggio Calabria, nel Sud Italia. Sono papà, nerd e appassionato di CrossFit.<br><br>
+                        Mi piace risolvere problemi con soluzioni innovative e trasformare sfide complesse in risultati concreti. Con una forte passione per la tecnologia, il cinema, la fotografia e la finanza, porto un approccio multidisciplinare in tutto quello che faccio.</span>
                     </div>
-                    <a href="#about" class="btn btn-primary cta-button text-white text-decoration-none">Scopri di più</a>
+                    <a href="#about" class="btn btn-primary cta-button text-white text-decoration-none">
+                        <span class="lang-en">Discover more</span>
+                        <span class="lang-it">Scopri di più</span>
+                    </a>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center mb-4 mb-lg-0">
                     <img src="images/pic2.jpg" alt="Daniele Casoria" class="hero-profile-img">
@@ -369,95 +369,107 @@
 
     <!-- About Section -->
     <section id="about" class="py-5 fade-in">
-    <div class="container">
-        <div class="content-section bg-white">
-            <div class="section-header text-center">
-                <h3 class="mb-0">About Me</h3>
-            </div>
-            <div class="section-content p-5">
-                <p class="mb-4">I'm an IT Engineer, System Administrator and Network Engineer with solid experience in the ICT sector, currently working at <strong>Halley Sud S.r.l.</strong>, a software house specialized in management systems for public administration.</p>
-                <p class="mb-4">I specialize in <strong>Linux systems</strong>, server management, <strong>VoIP technologies</strong>, database administration, <strong>Python scripting</strong>, and IT project management. I'm also experienced with Proxmox virtualization, Docker containers, self-hosted infrastructure, and Odoo ERP development.</p>
-                <p class="mb-4">I'm currently pursuing a <strong>Master's degree in Computer Security</strong>, with a thesis focused on cloud security for public administration: container and microservices integration with advanced defense tools.</p>
-                <p>Outside work, I'm a dad, a nerd, and a CrossFit enthusiast. I enjoy exploring open source technologies, hi-tech journalism, digital marketing, and finance.</p>
+        <div class="container">
+            <div class="content-section bg-white">
+                <div class="section-header text-center">
+                    <h3 class="mb-0"><span class="lang-en">About Me</span><span class="lang-it">Chi Sono</span></h3>
+                </div>
+                <div class="section-content p-5">
+                    <div class="lang-en">
+                        <p class="mb-4">I'm an IT Engineer, System Administrator and Network Engineer with solid experience in the ICT sector, currently working at <strong>Halley Sud S.r.l.</strong>, a software house specialized in management systems for public administration.</p>
+                        <p class="mb-4">I specialize in <strong>Linux systems</strong>, server management, <strong>VoIP technologies</strong>, database administration, <strong>Python scripting</strong>, and IT project management. I'm also experienced with Proxmox virtualization, Docker containers, self-hosted infrastructure, and Odoo ERP development.</p>
+                        <p class="mb-4">I'm currently pursuing a <strong>Master's degree in Computer Security</strong>, with a thesis focused on cloud security for public administration: container and microservices integration with advanced defense tools.</p>
+                        <p>Outside work, I'm a dad, a nerd, and a CrossFit enthusiast. I enjoy exploring open source technologies, hi-tech journalism, digital marketing, and finance.</p>
+                    </div>
+                    <div class="lang-it">
+                        <p class="mb-4">Sono un ingegnere informatico, system administrator e network engineer con una solida esperienza nel settore ICT. Attualmente lavoro presso <strong>Halley Sud S.r.l.</strong>, una software house specializzata in gestionali per la pubblica amministrazione.</p>
+                        <p class="mb-4">Mi specializzo in <strong>sistemi Linux</strong>, gestione server, <strong>tecnologie VoIP</strong>, amministrazione di database, <strong>scripting Python</strong> e gestione di progetti IT. Ho inoltre esperienza con la virtualizzazione Proxmox, container Docker, infrastrutture self-hosted e sviluppo Odoo ERP.</p>
+                        <p class="mb-4">Sto attualmente conseguendo una <strong>laurea magistrale in Sicurezza Informatica</strong>, con una tesi sulla sicurezza cloud per la PA: integrazione di container e microservizi con strumenti di difesa avanzati.</p>
+                        <p>Fuori dal lavoro sono papà, nerd e appassionato di CrossFit. Mi piace esplorare le tecnologie open source, il giornalismo tech, il digital marketing e la finanza.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- What I Do Section -->
-<section id="whatido" class="py-5 fade-in">
-    <div class="container">
-        <div class="content-section bg-white">
-            <div class="section-header text-center">
-                <h3 class="mb-0">What I Do</h3>
-            </div>
-            <div class="section-content p-5">
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="cert-card p-4 text-center h-100">
-                            <div class="cert-icon">
-                                <i class="bi bi-display"></i>
+    <section id="whatido" class="py-5 fade-in">
+        <div class="container">
+            <div class="content-section bg-white">
+                <div class="section-header text-center">
+                    <h3 class="mb-0"><span class="lang-en">What I Do</span><span class="lang-it">Cosa Faccio</span></h3>
+                </div>
+                <div class="section-content p-5">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="cert-card p-4 text-center h-100">
+                                <div class="cert-icon"><i class="bi bi-display"></i></div>
+                                <h4 class="h5">System Administration</h4>
+                                <p class="text-muted">
+                                    <span class="lang-en">Linux, Windows Server, Proxmox, Docker, LXC — on-premise and cloud infrastructure management.</span>
+                                    <span class="lang-it">Linux, Windows Server, Proxmox, Docker, LXC — gestione infrastrutture on-premise e cloud.</span>
+                                </p>
                             </div>
-                            <h4 class="h5">System Administration</h4>
-                            <p class="text-muted">Linux, Windows Server, Proxmox, Docker, LXC — gestione infrastrutture on-premise e cloud.</p>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="cert-card p-4 text-center h-100">
-                            <div class="cert-icon">
-                                <i class="bi bi-diagram-3"></i>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="cert-card p-4 text-center h-100">
+                                <div class="cert-icon"><i class="bi bi-diagram-3"></i></div>
+                                <h4 class="h5">Network Engineering</h4>
+                                <p class="text-muted">
+                                    <span class="lang-en">Cisco, Fortinet, VPN, firewall, VoIP — design and maintenance of corporate and PA networks.</span>
+                                    <span class="lang-it">Cisco, Fortinet, VPN, firewall, VoIP — progettazione e manutenzione reti aziendali e PA.</span>
+                                </p>
                             </div>
-                            <h4 class="h5">Network Engineering</h4>
-                            <p class="text-muted">Cisco, Fortinet, VPN, firewall, VoIP — progettazione e manutenzione reti aziendali e PA.</p>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="cert-card p-4 text-center h-100">
-                            <div class="cert-icon">
-                                <i class="bi bi-code-slash"></i>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="cert-card p-4 text-center h-100">
+                                <div class="cert-icon"><i class="bi bi-code-slash"></i></div>
+                                <h4 class="h5">Software Development</h4>
+                                <p class="text-muted">
+                                    <span class="lang-en">Python, FastAPI, Odoo, PostgreSQL — custom management systems, APIs and automations.</span>
+                                    <span class="lang-it">Python, FastAPI, Odoo, PostgreSQL — sviluppo di gestionali, API e automazioni su misura.</span>
+                                </p>
                             </div>
-                            <h4 class="h5">Software Development</h4>
-                            <p class="text-muted">Python, FastAPI, Odoo, PostgreSQL — sviluppo di gestionali, API e automazioni su misura.</p>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="cert-card p-4 text-center h-100">
-                            <div class="cert-icon">
-                                <i class="bi bi-briefcase"></i>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="cert-card p-4 text-center h-100">
+                                <div class="cert-icon"><i class="bi bi-briefcase"></i></div>
+                                <h4 class="h5">IT Consulting</h4>
+                                <p class="text-muted">
+                                    <span class="lang-en">Analysis, design and support for private companies and public administration.</span>
+                                    <span class="lang-it">Analisi, progettazione e supporto per privati, aziende e pubblica amministrazione.</span>
+                                </p>
                             </div>
-                            <h4 class="h5">IT Consulting</h4>
-                            <p class="text-muted">Analisi, progettazione e supporto per privati, aziende e pubblica amministrazione.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Experience Section -->
     <section id="experience" class="py-5 fade-in">
         <div class="container">
             <div class="content-section bg-white">
                 <div class="section-header text-center">
-                    <h3 class="mb-0">Training and Experience</h3>
+                    <h3 class="mb-0"><span class="lang-en">Training and Experience</span><span class="lang-it">Formazione ed Esperienza</span></h3>
                 </div>
                 <div class="section-content p-5">
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <h4>Degree in Computer Engineering</h4>
-                                <div class="date">2023 - 2025</div>
-                                <p>Tesi in Sicurezza Informatica "Sicurezza nel Cloud per la PA: Integrazione di Container e Microservizi con Strumenti di Difesa Avanzati".</p>
+                                <h4><span class="lang-en">Master's in Computer Security</span><span class="lang-it">Laurea Magistrale in Sicurezza Informatica</span></h4>
+                                <div class="date">2023 – 2025</div>
+                                <p><span class="lang-en">Thesis: "Cloud Security for PA: Container and Microservices Integration with Advanced Defense Tools".</span><span class="lang-it">Tesi: "Sicurezza nel Cloud per la PA: Integrazione di Container e Microservizi con Strumenti di Difesa Avanzati".</span></p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
                                 <h4>Halley SUD s.r.l</h4>
-                                <div class="date">2022 - Presente</div>
-                                <p>IT Engineer & System Administrator<br>IT Engineer at a software house specialized in management systems for public administration.</p>
+                                <div class="date">2022 – <span class="lang-en">Present</span><span class="lang-it">Presente</span></div>
+                                <p><span class="lang-en">IT Engineer &amp; System Administrator at a software house specialized in management systems for public administration.</span><span class="lang-it">IT Engineer &amp; System Administrator presso una software house specializzata in gestionali per la pubblica amministrazione.</span></p>
                             </div>
                         </div>
                         <div class="timeline-item">
@@ -465,7 +477,7 @@
                             <div class="timeline-content">
                                 <h4>Fortinet NSE 4</h4>
                                 <div class="date">2020</div>
-                                <p>Earn the Fortinet NSE 4 Network Security Professional</p>
+                                <p><span class="lang-en">Earned the Fortinet NSE 4 Network Security Professional certification.</span><span class="lang-it">Conseguita la certificazione Fortinet NSE 4 Network Security Professional.</span></p>
                             </div>
                         </div>
                         <div class="timeline-item">
@@ -473,23 +485,23 @@
                             <div class="timeline-content">
                                 <h4>S.I.C.E.T</h4>
                                 <div class="date">2019 – 2022</div>
-                                <p>Network and Systems Engineer in P.A & Other private customer</p>
+                                <p><span class="lang-en">Network and Systems Engineer for PA and private customers.</span><span class="lang-it">Network and Systems Engineer per la PA e clienti privati.</span></p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
                                 <h4>Cisco CCNA</h4>
-                                <div class="date">2020</div>
-                                <p>Earn the Cisco Certified Network Associate (CCNA) certification</p>
+                                <div class="date">2019</div>
+                                <p><span class="lang-en">Earned the Cisco Certified Network Associate (CCNA) certification.</span><span class="lang-it">Conseguita la certificazione Cisco Certified Network Associate (CCNA).</span></p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <h4>Employer: [confidential]</h4>
+                                <h4>IT Freelance</h4>
                                 <div class="date">2019 –</div>
-                                <p>IT Consulence</p>
+                                <p>IT Consulting</p>
                             </div>
                         </div>
                         <div class="timeline-item">
@@ -497,7 +509,7 @@
                             <div class="timeline-content">
                                 <h4>Employer: [confidential]</h4>
                                 <div class="date">2019</div>
-                                <p>IT Consulence & Network Administrator</p>
+                                <p>IT Consulting &amp; Network Administrator</p>
                             </div>
                         </div>
                     </div>
@@ -511,101 +523,66 @@
         <div class="container">
             <div class="content-section bg-white">
                 <div class="section-header text-center">
-                    <h3 class="mb-0">Skills and Recognitions</h3>
+                    <h3 class="mb-0"><span class="lang-en">Skills and Recognitions</span><span class="lang-it">Competenze e Certificazioni</span></h3>
                 </div>
                 <div class="section-content p-5">
                     <div class="row g-4">
                         <div class="col-lg-4 col-md-6">
                             <div class="cert-card p-4 text-center h-100">
                                 <div class="cert-icon">🏆</div>
-                                <h4 class="h5">Cisco Certified Network Associate (CCNA)</h4>
-                                <p>knowledge and skills related to network fundamentals, network access, IP connectivity, IP services, security fundamentals, automation, and programmability.</p>
-                                <small class="text-muted">Ottenuta nel 2019</small>
+                                <h4 class="h5">Cisco CCNA</h4>
+                                <p><span class="lang-en">Knowledge and skills related to network fundamentals, network access, IP connectivity, IP services, security fundamentals, automation, and programmability.</span><span class="lang-it">Competenze su fondamenti di rete, accesso alla rete, connettività IP, servizi IP, sicurezza, automazione e programmabilità.</span></p>
+                                <small class="text-muted">2019</small>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="cert-card p-4 text-center h-100">
-                                <div class="cert-icon">⚛️</div>
-                                <h4 class="h5">Fortinet NSE 4 Network Security Professional</h4>
-                                <p>recognizes individuals who can install, configure, manage, and monitor FortiGate devices to support corporate network security policies. It signifies competence in the day-to-day operations and administration of FortiGate, including areas like firewall policies, authentication, logging, and Security Fabric integration</p>
-                                <small class="text-muted">Ottenuta nel 2019</small>
+                                <div class="cert-icon"><i class="bi bi-shield-check"></i></div>
+                                <h4 class="h5">Fortinet NSE 4</h4>
+                                <p><span class="lang-en">Install, configure, manage and monitor FortiGate devices to support corporate network security policies, including firewall, authentication, logging and Security Fabric.</span><span class="lang-it">Installazione, configurazione e gestione di dispositivi FortiGate per la sicurezza di reti aziendali, inclusi firewall, autenticazione e Security Fabric.</span></p>
+                                <small class="text-muted">2019</small>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="cert-card p-4 text-center h-100">
                                 <div class="cert-icon">🔒</div>
                                 <h4 class="h5">Cybersecurity Fundamentals</h4>
-                                <p>Principi di sicurezza informatica, protezione dei dati e best practices per lo sviluppo sicuro.</p>
-                                <small class="text-muted">Ottenuta nel 2023</small>
+                                <p><span class="lang-en">Core principles of information security, data protection and best practices for secure development.</span><span class="lang-it">Principi fondamentali di sicurezza informatica, protezione dei dati e best practice per lo sviluppo sicuro.</span></p>
+                                <small class="text-muted">2023</small>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="https://www.credly.com/users/daniele-casoria/badges#credly" class="btn btn-primary cta-button text-white text-decoration-none">Scopri tutti i certificati</a>
+                <a href="https://www.credly.com/users/daniele-casoria/badges#credly" target="_blank" class="btn btn-primary cta-button text-white text-decoration-none">
+                    <span class="lang-en">View all certifications</span>
+                    <span class="lang-it">Scopri tutti i certificati</span>
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- Portfolio Section (hidden) -->
     <!--
-   
     <section id="portfolio" class="py-5 fade-in">
-        <div class="container">
-            <div class="content-section bg-white">
-                <div class="section-header text-center">
-                    <h3 class="mb-0">Portfolio</h3>
-                </div>
-                <div class="section-content p-5">
-                    <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="cert-card p-4 text-center h-100">
-                                <div class="cert-icon">🏆</div>
-                                <h4 class="h5">Cisco Certified Network Associate (CCNA)</h4>
-                                <p>knowledge and skills related to network fundamentals, network access, IP connectivity, IP services, security fundamentals, automation, and programmability.</p>
-                                <small class="text-muted">Ottenuta nel 2019</small>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="cert-card p-4 text-center h-100">
-                                <div class="cert-icon">⚛️</div>
-                                <h4 class="h5">Fortinet NSE 4 Network Security Professional</h4>
-                                <p>recognizes individuals who can install, configure, manage, and monitor FortiGate devices to support corporate network security policies. It signifies competence in the day-to-day operations and administration of FortiGate, including areas like firewall policies, authentication, logging, and Security Fabric integration</p>
-                                <small class="text-muted">Ottenuta nel 2019</small>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="cert-card p-4 text-center h-100">
-                                <div class="cert-icon">🔒</div>
-                                <h4 class="h5">Cybersecurity Fundamentals</h4>
-                                <p>Principi di sicurezza informatica, protezione dei dati e best practices per lo sviluppo sicuro.</p>
-                                <small class="text-muted">Ottenuta nel 2023</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <a href="https://www.credly.com/users/daniele-casoria/badges#credly" class="btn btn-primary cta-button text-white text-decoration-none">Scopri tutti i certificati</a>
-            </div>
-        </div>
+        ...
     </section>
     -->
-    
+
     <!-- Contact Section -->
     <section id="contact" class="py-5 fade-in">
         <div class="container">
             <div class="content-section bg-white">
                 <div class="section-header text-center">
-                    <h2 class="mb-0">Parlami della tua idea!</h2>
-                    
+                    <h2 class="mb-0"><span class="lang-en">Tell me about your idea!</span><span class="lang-it">Parlami della tua idea!</span></h2>
                 </div>
                 <div class="section-content p-5">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <form action="https://formspree.io/f/manbjaan" method="POST">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Nome</label>
+                                    <label for="name" class="form-label"><span class="lang-en">Name</span><span class="lang-it">Nome</span></label>
                                     <input type="text" class="form-control" id="name" name="name" required>
                                 </div>
                                 <div class="mb-3">
@@ -613,21 +590,26 @@
                                     <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="subject" class="form-label">Oggetto</label>
+                                    <label for="subject" class="form-label"><span class="lang-en">Subject</span><span class="lang-it">Oggetto</span></label>
                                     <input type="text" class="form-control" id="subject" name="subject" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="message" class="form-label">Messaggio</label>
+                                    <label for="message" class="form-label"><span class="lang-en">Message</span><span class="lang-it">Messaggio</span></label>
                                     <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary submit-btn text-white">Invia Messaggio</button>
+                                    <button type="submit" class="btn btn-primary submit-btn text-white">
+                                        <span class="lang-en">Send Message</span>
+                                        <span class="lang-it">Invia Messaggio</span>
+                                    </button>
                                 </div>
                             </form>
                             <div class="text-center mt-4">
-                                <a href="https://www.linkedin.com/in/daniele-casoria-29371555" target="_blank" class="btn btn-outline-primary rounded-pill px-4">
-                                <i class="bi bi-linkedin me-2"></i>Connettiti su LinkedIn
-                                  </a>
+                                <a href="https://www.linkedin.com/in/daniele-casoria" target="_blank" class="btn btn-outline-primary rounded-pill px-4">
+                                    <i class="bi bi-linkedin me-2"></i>
+                                    <span class="lang-en">Connect on LinkedIn</span>
+                                    <span class="lang-it">Connettiti su LinkedIn</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -636,44 +618,39 @@
         </div>
     </section>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
 
+    <script>
+        // Language toggle
+        let currentLang = 'en';
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'it' : 'en';
+            const btn = document.getElementById('langToggle');
+            document.body.classList.toggle('lang-it-active', currentLang === 'it');
+            btn.textContent = currentLang === 'en' ? 'IT' : 'EN';
+            document.documentElement.lang = currentLang;
+        }
+
+        // Scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Add scroll effect to navigation
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.navbar');
             if (window.scrollY > 100) {
