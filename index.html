@@ -320,6 +320,31 @@
             .hero-bio { font-size: 0.95rem; }
 
             .lang-toggle { margin-left: 0; margin-top: 0.5rem; }
+
+            #backToTop {
+                position: fixed;
+                bottom: 2rem;
+                right: 2rem;
+                width: 48px;
+                height: 48px;
+                background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                font-size: 1.2rem;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(0, 212, 170, 0.4);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+
+            #backToTop:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 212, 170, 0.5);
+            }
         }
     </style>
 </head>
@@ -676,7 +701,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 nav.style.background = 'rgba(255, 255, 255, 0.95)';
                 nav.style.boxShadow = 'none';
             }
+            // Back to top  <-- aggiungi da qui
+    const btn = document.getElementById('backToTop');
+    btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
     </script>
+    <!-- Back to top button -->
+<button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Torna su">
+    <i class="bi bi-arrow-up"></i>
+</button>
 </body>
 </html>
