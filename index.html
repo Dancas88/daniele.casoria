@@ -454,13 +454,13 @@ footer .social-icon:hover { background: var(--color-primary); }
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
         <span class="hero-badge fade-up"><span class="dot"></span>
-          <span data-it="Disponibile per nuove opportunità" data-en="Open to new opportunities">Disponibile per nuove opportunità</span>
+          <span data-it="Disponibile per nuove sfide" data-en="Open to new challenge">Disponibile per nuove sfide </span>
         </span>
-        <h1 class="mt-4 fade-up" data-it="Ciao, sono Daniele Casoria" data-en="Hi, I'm Daniele Casoria">
-          Ciao, sono Daniele Casoria
+        <h1 class="mt-4 fade-up" data-it="Ciao, sono Daniele " data-en="Hi, I'm Daniele ">
+          Ciao, sono Daniele.
         </h1>
-        <p class="lead mt-3 fade-up mx-auto" data-it="I computer fanno parte della mia vita da quando ero piccolo. Non ho mai smesso di volerne sapere di più." data-en="Computers have been part of my life since I was a kid. I've never stopped wanting to know more.">
-          I computer fanno parte della mia vita da quando ero piccolo. Non ho mai smesso di volerne sapere di più.
+        <p class="lead mt-3 fade-up mx-auto" data-it="I computer fanno parte della mia vita da quando ero piccolo. Da allora non ho mai smesso di volerne sapere sempre di più." data-en="Computers have been part of my life since I was little. Since then I have never stopped wanting to know more and more.">
+          I computer fanno parte della mia vita da quando ero piccolo. Da allora non ho mai smesso di volerne sapere sempre di più.
         </p>
         <div class="d-flex gap-3 flex-wrap justify-content-center mt-4 fade-up">
           <a href="#contatti" class="btn btn-primary-custom" data-it="Contattami" data-en="Get in touch">Contattami</a>
@@ -476,6 +476,7 @@ footer .social-icon:hover { background: var(--color-primary); }
   </div>
   <a href="#chi-sono" class="scroll-cue" aria-label="Scorri"><i class="bi bi-chevron-down"></i></a>
 </section>  
+  
 <!-- ===== CHI SONO ===== -->
 <section id="chi-sono" class="py-6">
   <div class="container">
@@ -933,6 +934,16 @@ window.addEventListener('scroll', () => {
   backToTopBtn.classList.toggle('visible', window.scrollY > 500);
 });
 document.querySelectorAll('.skill-fill').forEach(el => skillObserver.observe(el));
+
+  // ===== FIX MENU MOBILE TRASPARENTE =====
+const navMenuEl = document.getElementById('navMenu');
+const mainNavEl = document.getElementById('mainNav');
+navMenuEl.addEventListener('show.bs.collapse', () => {
+  mainNavEl.classList.add('scrolled');
+});
+navMenuEl.addEventListener('hide.bs.collapse', () => {
+  if (window.scrollY <= 40) mainNavEl.classList.remove('scrolled');
+});
 
 </script>
 </button>
